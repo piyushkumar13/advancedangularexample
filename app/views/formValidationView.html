@@ -1,0 +1,16 @@
+<div class="jumbotron" ng-controller="FormValidationController">
+    <div class="container">
+        <div class="well">
+            <form name="myForm" novalidate>
+                Enter your name : <input type="text" name="myText" ng-model="school.student.name"
+                                         ng-class="myCheck.getCssForForm(myForm.myText)" ng-minlength="3"
+                                         ng-maxlength="10">
+
+            </form>
+        </div>
+        <span ng-show="myForm.myText.$invalid" style="color: red;">Enter the name correctly</span>
+        <span ng-show="myForm.myText.$valid">
+            Student Name : {{school.student.name}}
+        </span>
+    </div>
+</div>

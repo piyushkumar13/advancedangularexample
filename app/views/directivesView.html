@@ -1,0 +1,19 @@
+<div class="jumbotron">
+    <div class="container">
+        <!--Here, directive name piyushKumar will not work as it is in the camelCase. The directive name should be in
+        all lowecase.Even, all uppercase directive name also wont work.-->
+        <piyushkumar></piyushkumar>
+        <pdirective></pdirective>
+        <div ng-controller="DirectiveController">
+            <!--Never give the directive names in the camelCase and that too the directive name ending with 'Directive' as
+            in the following case. It wont work.-->
+            <!--<isoDirective user1="piyush"></isoDirective>-->
+            <!--<isoDirective user1="sheel"></isoDirective>-->
+            <isodirective user1="piyush"></isodirective>
+            <isodirective user1="sheel"></isodirective>
+            <pcompiledirective></pcompiledirective>
+        </div>
+        <ptrans>Transclude example.</ptrans>
+
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="jumbotron">
+    <div class="container" ng-controller="FormController">
+        <div class="well">
+            Name of the college : <input type="text" ng-model="college.name"><br>
+            Indian College : <input type="checkbox" ng-model="college.location" ng-true-value="'yes'"
+                                    ng-false-value="'no'"><br>
+            Stream : <input type="radio" ng-model="college.stream" value="science">science
+            <input type="radio" ng-model="college.stream" value="commerce">commerce <br>
+            Courses : <select ng-model="college.course">
+            <option value="science">science</option>
+            <option value="commerce">commerce</option>
+        </select>
+
+            Campus : <select ng-model="college.select" ng-options="loc.value as loc.name for loc in college.campus">
+            <option value=" ">Select a campus</option>
+
+            </select>
+
+        </div>
+        <div>
+            college name : {{college.name}} <br>
+            Indian College : {{college.location}}<br>
+            Stream : {{college.stream}}<br>
+            course : {{college.course}}
+            campus : {{college.select}}
+
+        </div>
+        <div>
+
+        </div>
+    </div>
+</div>

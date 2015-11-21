@@ -1,0 +1,7 @@
+.fieldValid {
+    border: 2px solid green;
+}
+
+.fieldInvalid {
+    border: 2px solid red;
+}

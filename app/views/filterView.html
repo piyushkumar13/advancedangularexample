@@ -1,0 +1,99 @@
+<div ng-controller="FilterController">
+    <div class="container">
+
+        <div class="well">
+
+            <!--limitTo filter limits the string to the specified number of characters, when used with the string.
+            If used with the array, it will limit the array to the specified number of indices.
+            -->
+            <ul>
+                <!--Here, car name will be restricted to the 3 characters-->
+                <li ng-repeat="car in cars">{{car.name |limitTo:3}}</li>
+            </ul>
+
+            <!--orderBy filter sorts the array of js object with the specified criteria.-->
+            <!--currency filter formats the number with currency symbol.By default, it use $ sign.We can pass the
+            HTML entity for the currency symbol as an argument to the filter.Currency symbol also takes one more argument
+             which actually formats the number with the no of digits after the decimal point.This argument is called fractions.
+             -->
+            <ul>
+                <!--Here, orderBy will sort the cars array according to the alphabetical order of the value of the name which
+                is passed as the argument in the orderBy filter.If we use '-name', it will reversed the order.To reverse the
+                order we can also use second argument as true or false.'true' will reverse the order.By default, value is
+                false-->
+                <li ng-repeat="car in cars|orderBy:'name':true|limitTo:2"> {{car.name}} and {{car.model}} and
+                    {{car.price|currency:'&#8377;':2}}
+                </li>
+            </ul>
+
+            <!--number filter formats the number with the specified no of digits after the decimal point. The no of decimal
+            points after the decimal points is given as the argument to the number filter.-->
+            <!--lowercase filter will format the string to the lowercase.-->
+            <!--uppercase filter will format the string to the uppercase.-->
+            <ul>
+
+                <!--Here, car price will be format with 3 no of digits after the decimal point.-->
+                <li ng-repeat="car in cars">{{car.price|number:3}} && {{car.name|lowercase}} && {{car.name|uppercase}}
+                </li>
+            </ul>
+
+
+            <ul>
+                <li ng-repeat="car in cars|filter:'m'">The car that starts with m is {{car.name}} and its price is {{car.price}}</li>
+            </ul>
+
+            <ul>
+                <li ng-repeat="car in cars|filter:carFilter">The carFilter result is {{car.name}} and its price is {{car.price}}</li>
+            </ul>
+
+            <!--json filter will filter will format the js object to the json format.-->
+            <div>
+                {{cars|json}}
+            </div>
+
+            <!--date filter will format the date js object to the specified format passed as the argument to the date filter.
+            -->
+            <div>
+                Todays date is : {{myDate|date:'dd-MM-yyyy'}}
+            </div>
+
+            <input type="text" ng-model="inputCarName">
+            <ul>
+                <li ng-repeat="car in cars|filter:inputCarName">The searched car details : {{car.name}} && {{car.model}} && {{car.price}}</li>
+            </ul>
+
+            <!--using filters in the controller-->
+
+            <ul>
+                <li ng-repeat="car in filteredCarsByName">{{car.name}}</li>
+            </ul>
+
+            <ul>
+                <li ngrepeat="car in filteredCarsBySpecificYear">The name of the car is {{car.name}}</li>
+            </ul>
+
+            <ul>
+                <li ng-repeat="car in filteredCarsByPriceNumber">The price of car {{car.name}} is {{car.price}}</li>
+            </ul>
+
+            <!--Custom filter-->
+            <div>The result of the custom filter is {{cars[0].name|customFilter}}</div>
+
+            <ul>
+                <li ng-repeat="car in cars|customOrderByFilter">
+                    The result of the custom order by filter is {{car.name}} and {{car.price}}
+                </li>
+            </ul>
+
+            <!--Here, I am trying to inject the generic filter in the custom filter and filter the array according to the
+            name given in the input box.This is not working.Need to ask.Same thing I have achieved above code but using only
+            generic filter and no custom filter.-->
+            <!--<input type="text" ng-model="carName">-->
+            <!--<ul>-->
+                <!--<li ng-repeat="car in cars|custFilter">The searched car details : {{car.name}} && {{car.model}} && {{car.price}}</li>-->
+            <!--</ul>-->
+
+        </div>
+
+    </div>
+</div>

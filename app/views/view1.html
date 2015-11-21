@@ -1,0 +1,21 @@
+<div class="container">
+    <div ng-init="employees=[{name:'Piyush',age:25},
+    {name:'Akshay',age:25},
+    {name:'Sheel',age:23},
+    {name:'Brijesh',age:27}]">
+
+        <div class="well">
+            <ol>
+                <li ng-repeat="emp in employees">{{emp.name}} and {{emp.age}}</li>
+            </ol>
+            <div ng-repeat="employee in employees">
+                <div ng-repeat="(key,value) in employee">
+                    {{key}} : {{value}}
+                </div>
+            </div>
+
+        </div>
+
+        <div class="well well-sm" ng-bind="employees[0].name +'&nbsp;'+employees[0].age"></div>
+    </div>
+</div>
